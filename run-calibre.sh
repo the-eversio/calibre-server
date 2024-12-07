@@ -6,7 +6,7 @@ CALIBRERB="calibredb --with-library=${CALIBRE_DIR}/library"
 
 # ensures CALIBRE_USER/CALIBRE_PASSWORD is a valid set of credentials,
 # overwriting previous password if needed
-if ${MANAGE_USERS} list | rg -q ${CALIBRE_USER}; then
+if ${MANAGE_USERS} list | grep -q ${CALIBRE_USER}; then
 	${MANAGE_USERS} chpass ${CALIBRE_USER} ${CALIBRE_PASSWORD}
 else
 	${MANAGE_USERS} add ${CALIBRE_USER} ${CALIBRE_PASSWORD}

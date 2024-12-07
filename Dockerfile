@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 
 ENV CALIBRE_DIR=/opt/calibre \
 	CALIBRE_USER=calibre \
@@ -7,7 +7,7 @@ ENV CALIBRE_DIR=/opt/calibre \
 
 RUN \
 	apt update && \
-	apt install -y calibre ripgrep && \
+	apt install -y --no-install-recommends calibre && \
 	apt clean && \
 	rm -rf /var/lib/apt/lists/*
 
