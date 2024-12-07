@@ -1,9 +1,6 @@
 FROM debian:bookworm-slim
 
-ENV CALIBRE_DIR=/opt/calibre \
-	CALIBRE_USER=calibre \
-	CALIBRE_PASSWORD=calibre-secret \
-	CALIBRE_PORT=8080
+ENV CALIBRE_DIR=/opt/calibre
 
 RUN \
 	apt update && \
@@ -13,4 +10,4 @@ RUN \
 
 COPY run-calibre.sh /usr/bin/run-calibre.sh
 
-CMD /usr/bin/run-calibre.sh
+CMD ["/usr/bin/run-calibre.sh"]
